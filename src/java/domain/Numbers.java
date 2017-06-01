@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.NumberFormat;
+import validator.EvenNumber;
 
 public class Numbers {
     
@@ -15,8 +16,6 @@ public class Numbers {
      */
     
     @DecimalMax("5000.50")
-    //Default value not working yet
-    @Value("${amount:2000.856}")
     @NumberFormat(pattern="#,##0.00")
     private double amount;
    
@@ -29,6 +28,7 @@ public class Numbers {
     @NotNull
     @Range(min = 1, max = 11000)
     @NumberFormat(pattern="#,##0")
+    @Value("2000")
     private Integer number1;
   
     /*     
@@ -37,6 +37,8 @@ public class Numbers {
         initiële waarde = 1234566
      */
     @NotNull
+    @Value("1234566")
+    @EvenNumber
     private Integer number2;
 
     public double getAmount() {

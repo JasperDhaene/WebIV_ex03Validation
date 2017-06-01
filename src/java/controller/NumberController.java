@@ -23,7 +23,7 @@ public class NumberController {
     @RequestMapping(method = RequestMethod.POST)
     //Very importante: BindingResult direct na je @Valid parameter plaatsen, 
     //anders krijg je een prachtige "error 400 - bad request".
-    public String processNumbers(@Valid @ModelAttribute Numbers numbers, BindingResult result, Model model) {
+    public String processNumbers(@Valid Numbers numbers, BindingResult result, Model model) {
         if (result.hasErrors())
             return "numberForm";
 
