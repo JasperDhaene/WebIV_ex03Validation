@@ -1,5 +1,11 @@
 package domain;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.format.annotation.NumberFormat;
+
 public class Numbers {
     
     /* amount
@@ -7,6 +13,11 @@ public class Numbers {
 	wordt steeds met twee cijfers na de komma afgebeeld
 	initiële waarde = 2000.856
      */
+    
+    @DecimalMax("5000.50")
+    //Default value not working yet
+    @Value("${amount:2000.856}")
+    @NumberFormat(pattern="#,##0.00")
     private double amount;
    
     /* number1
@@ -15,7 +26,9 @@ public class Numbers {
     	initiële waarde = 2000 (wordt afgebeeld als 2.000)
      */
         
-
+    @NotNull
+    @Range(min = 1, max = 11000)
+    @NumberFormat(pattern="#,##0")
     private Integer number1;
   
     /*     
@@ -23,7 +36,7 @@ public class Numbers {
         moet ingevuld zijn
         initiële waarde = 1234566
      */
-    
+    @NotNull
     private Integer number2;
 
     public double getAmount() {

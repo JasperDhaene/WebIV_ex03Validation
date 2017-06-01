@@ -11,22 +11,21 @@
     </head>
     <body>
 
-        <form:form method="POST" action="numbers.htm" 
-                   modelAttribute="numbers">
-
+        <form:form method="POST" action="numbers.htm" modelAttribute="numbers">
+            <form:errors path="*"></form:errors>
             <p><label>Amount:</label>
                 <form:input path="amount" size="7" maxLength="10"/>&nbsp; 
-                            
+                <form:errors path="amount"/>           
             </p>
 
             <p><label>Number1:</label>
                 <form:input path="number1" size="7" maxLength="10"/>&nbsp;
-                
+                <form:errors path="number1"/>   
             </p>
 
             <p><label>Number2:</label>
                 <form:input path="number2" size="7" maxLength="10"/>&nbsp;
-                       
+                   <form:errors path="number2"/>       
             </p>
             <p><input type="submit" value="Submit" /></p>
 
